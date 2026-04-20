@@ -46,7 +46,7 @@ export default function AboutSection() {
         </p>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
           {aboutStats.map((s) => (
             <div key={s.value} className="bg-primary rounded-xl p-7 text-center">
               <div className="text-3xl md:text-4xl font-black text-accent">{s.value}</div>

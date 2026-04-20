@@ -40,7 +40,7 @@ export default function Navbar() {
             Talk to Us →
           </a>
         </div>
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
+        <button className="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" onClick={() => setOpen(!open)}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -51,7 +51,7 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block text-base font-semibold text-foreground"
+              className="block text-base font-semibold text-foreground py-2 min-h-[44px] flex items-center"
             >
               {l.label}
             </a>

@@ -140,7 +140,7 @@ function CheckboxCard({ label, checked, onChange }: { label: string; checked: bo
     <button
       type="button"
       onClick={onChange}
-      className={`w-full text-left px-4 py-3 rounded-xl border transition-all text-sm flex items-start gap-3 ${
+      className={`w-full text-left px-4 py-3 min-h-[44px] rounded-xl border transition-all text-sm flex items-start gap-3 ${
         checked
           ? "bg-primary/5 border-primary/40 text-primary font-medium"
           : "bg-background border-border text-foreground hover:border-accent/50"
@@ -179,7 +179,7 @@ function RadioCard({ label, checked, onChange }: { label: string; checked: boole
     <button
       type="button"
       onClick={onChange}
-      className={`flex-1 px-5 py-3 rounded-xl border text-sm font-medium transition-all ${
+      className={`flex-1 px-5 py-3 min-h-[44px] rounded-xl border text-sm font-medium transition-all ${
         checked
           ? "bg-primary text-primary-foreground border-primary shadow-md"
           : "bg-background border-border text-foreground hover:border-accent/50"
@@ -315,7 +315,7 @@ function NavButtons({
         <button
           type="button"
           onClick={onBack}
-          className="flex-1 sm:flex-none sm:w-36 px-6 py-3 border border-border rounded-xl text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
+          className="flex-1 sm:flex-none sm:w-36 px-6 py-3 min-h-[48px] border border-border rounded-xl text-sm font-semibold text-foreground hover:bg-secondary transition-colors"
         >
           ← Back
         </button>
@@ -324,7 +324,7 @@ function NavButtons({
         type="button"
         onClick={onNext}
         disabled={submitting}
-        className="flex-1 px-6 py-3 bg-primary text-primary-foreground rounded-xl text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex-1 px-6 py-3 min-h-[48px] bg-primary text-primary-foreground rounded-xl text-sm font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {submitting ? "Submitting..." : step === total ? "Submit Application →" : "Continue →"}
       </button>
