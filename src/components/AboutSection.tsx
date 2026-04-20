@@ -26,7 +26,7 @@ const team = [
     initials: "TZ",
     name: "Tony Zulli",
     role: "Director, Iconic Investors",
-    bio: "Tony brings more than 30 years of financial services experience, including senior roles at Citibank and a proven track record of building and running successful dealer groups across Australia. His deep institutional knowledge and industry relationships provide the strategic foundation that underpins everything Iconic does.",
+    bio: "Tony brings more than 30 years of financial services experience, including senior roles at Citibank and a proven track record of building and running successful licensee services across Australia. His deep institutional knowledge and industry relationships provide the strategic foundation that underpins everything Iconic does.",
   },
 ];
 
@@ -40,9 +40,9 @@ export default function AboutSection() {
     <section id="about" className="py-20 md:py-28 bg-card">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">About Iconic Investors</p>
-        <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-5">A dealer group built by an adviser,<br className="hidden sm:block" /> for advisers.</h2>
+        <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-5">A licensee built by an adviser,<br className="hidden sm:block" /> for advisers.</h2>
         <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-14">
-          Iconic Investors is an AFSL-licensed dealer group (AFSL 450822) providing independent financial planners with the licence, compliance framework and strategic support to build thriving, sustainable advisory practices.
+          Iconic Investors is an AFSL licensee (AFSL 450822) providing independent financial planners with the licence, compliance framework and strategic support to build thriving, sustainable advisory practices.
         </p>
 
         {/* Stats */}

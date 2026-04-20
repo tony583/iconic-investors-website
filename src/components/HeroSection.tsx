@@ -28,7 +28,7 @@ export default function HeroSection() {
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="inline-flex items-center gap-2 bg-accent/15 text-accent border border-accent/30 rounded-full px-4 py-1.5 text-sm font-bold mb-6"
           >
-            <span>⚖</span> Australia's Trusted AFSL Dealer Group
+            <span>⚖</span> Australia's Trusted AFSL Licensee
           </motion.div>
 
           <motion.h1

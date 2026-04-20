@@ -26,7 +26,7 @@ export default function ServicesSection() {
   return (
     <section id="licensee-services" className="py-20 md:py-28 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">Dealer Group Services</p>
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">Licensee Services</p>
         <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Everything you need, from day one.</h2>
         <p className="text-lg text-muted-foreground max-w-3xl mb-14">AFSL-backed support designed to empower your financial advisory practice — structured, practical and built around you.</p>
 

@@ -53,7 +53,7 @@ export function FinalCTA() {
           viewport={{ once: true }} transition={{ delay: 0.1, duration: 0.5 }}
           className="text-lg text-primary-foreground/60 mb-8"
         >
-          Whether you're starting fresh, transitioning from another dealer group, or simply looking for more support — we'd love to have an honest conversation.
+          Whether you're starting fresh, transitioning from another licensee, or simply looking for more support — we'd love to have an honest conversation.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

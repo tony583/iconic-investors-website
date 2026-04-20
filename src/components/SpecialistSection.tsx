@@ -50,7 +50,7 @@ export default function SpecialistSection() {
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">Specialist Services</p>
           <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Advanced Services for Complex Client Needs</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-16">Beyond our core dealer group offering, Iconic Investors provides access to specialist services through our strategic business partners — giving your clients access to world-class expertise.</p>
+          <p className="text-lg text-muted-foreground max-w-3xl mb-16">Beyond our core licensee services offering, Iconic Investors provides access to specialist services through our strategic business partners — giving your clients access to world-class expertise.</p>
         </div>
       </div>
 

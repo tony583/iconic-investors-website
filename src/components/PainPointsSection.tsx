@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 const BOOKING_URL = "https://api.leadconnectorhq.com/widget/bookings/discovery_call_antonio";
 
 const painPoints = [
-  { q: "My dealer group takes a cut of everything I earn", a: "Iconic charges one flat fee. No revenue share. No percentages. You keep 100% of what you earn." },
+  { q: "My licensee takes a cut of everything I earn", a: "Iconic charges one flat fee. No revenue share. No percentages. You keep 100% of what you earn." },
   { q: "I can't get anyone on the phone when I need compliance help", a: "You'll have a direct line to our team. Not a ticket system. Not a shared inbox. Real people, fast responses." },
   { q: "I'm terrified of an AFCA complaint and being left on my own", a: "We stand beside you. Our compliance team supports you through the full AFCA process — you're never navigating a complaint alone." },
   { q: "My AFSL doesn't support me properly — I feel like I'm on my own", a: "Iconic is boutique by design. You'll have supervision, guidance and support that's built around your practice — not a generic one-size template." },
   { q: "I'm not getting the commissions and fee structures I deserve", a: "We help you structure your fee model and remuneration correctly — so you're earning what your expertise is worth, compliantly." },
-  { q: "I specialise in SMSFs but my dealer group doesn't understand my clients", a: "We're built for SMSF specialists. Our compliance framework is designed around the complexity of self-managed super — not retrofitted for it." },
+  { q: "I specialise in SMSFs but my licensee doesn't understand my clients", a: "We're built for SMSF specialists. Our compliance framework is designed around the complexity of self-managed super — not retrofitted for it." },
   { q: "I want to grow but I don't have the systems or support to scale", a: "We provide technology, marketing support and referral partnerships to help you build a practice that's efficient, profitable and growing." },
   { q: "I'm thinking about selling my practice but don't know where to start", a: "We help you structure, value and exit your practice — at the right time, at the right price, on your own terms." },
 ];
