@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/EES2gzrU89UBYJYY3l2p";
+const BOOKING_URL = "https://api.leadconnectorhq.com/widget/bookings/discovery_call_antonio";
 
 const painPoints = [
   { q: "My dealer group takes a cut of everything I earn", a: "Iconic charges one flat fee. No revenue share. No percentages. You keep 100% of what you earn." },

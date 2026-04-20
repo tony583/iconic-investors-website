@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/EES2gzrU89UBYJYY3l2p";
+const BOOKING_URL = "https://api.leadconnectorhq.com/widget/bookings/discovery_call_antonio";
 
 const featured = [
   { num: "01", title: "Transition Management & Onboarding", desc: "We collaborate with your team to ensure a smooth, structured transition into the Iconic Investors network — minimising downtime and protecting your clients." },
