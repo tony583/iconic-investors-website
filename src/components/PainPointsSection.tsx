@@ -25,7 +25,7 @@ export default function PainPointsSection() {
         <div className="text-center mb-14">
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">We Understand Your Challenges</p>
           <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Sound familiar?</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">These are the challenges financial planners bring to us every day. If any of these resonate, we should talk.</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">These are the challenges experienced financial advisers bring to us. If any of these resonate, we should talk.</p>
         </div>
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}

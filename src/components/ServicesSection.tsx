@@ -13,7 +13,7 @@ const tiles = [
   { icon: "📈", title: "Strategic Business Development", desc: "Specific strategies for practice efficiency and optimised client engagement — built around your growth goals." },
   { icon: "💻", title: "Digital Operations & Solutions", desc: "A fully digital approach to your advice delivery, operations and administration — efficient, compliant and built for scale." },
   { icon: "💰", title: "Simple Flat Fee Structure", desc: "One all-inclusive fee. No hidden costs, no add-ons, no surprises — everything you need to operate and grow." },
-  { icon: "🤝", title: "Advice Collective", desc: "A network of like-minded planners sharing knowledge, referrals and operational resources. Real peer value." },
+  { icon: "🛡️", title: "Life Risk Insurance Services", desc: "Access to life risk insurance services delivered through general advice — a pathway to broader personal advice engagements for your clients." },
   { icon: "🚪", title: "Exit Strategies", desc: "Expert advice on planning and executing your practice exit — on your own terms, your own timeline." },
 ];
 
@@ -28,7 +28,7 @@ export default function ServicesSection() {
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">Licensee Services</p>
         <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Everything you need, from day one.</h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mb-14">AFSL-backed support designed to empower your financial advisory practice — structured, practical and built around you.</p>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-14">AFSL-backed support designed for experienced financial advisers — structured, practical and built around your specialist practice.</p>
 
         {/* Featured */}
         <motion.div

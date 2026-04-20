@@ -3,11 +3,12 @@ import { Check } from "lucide-react";
 
 const BOOKING_URL = "https://api.leadconnectorhq.com/widget/bookings/discovery_call_antonio";
 
-const stats = [
-  { value: "30+", label: "Years Combined Experience" },
-  { value: "AFSL 450822", label: "Licensed & Regulated", gold: true },
-  { value: "2–4 Weeks", label: "Fast Onboarding" },
-  { value: "Flat Fee", label: "All Inclusive — No Surprises", gold: true },
+const reasons = [
+  { label: "Boutique licence for experienced, specialist advisers", gold: true },
+  { label: "All forms of advice — personal, limited and general", gold: false },
+  { label: "Licensee for specialist SMSF advisers", gold: false },
+  { label: "Value added specialist services", gold: false },
+  { label: "Simple flat fee structure", gold: true },
 ];
 
 const trustItems = ["AFSL Authorised Fast", "One Flat Fee — No Surprises", "30+ Years Experience"];
@@ -36,14 +37,14 @@ export default function HeroSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-serif leading-[1.1] mb-6"
           >
             The AFSL Home for{" "}
-            <span className="text-accent">Independent Financial</span> Planners
+            <span className="text-accent">Experienced & Specialist</span> Advisers
           </motion.h1>
 
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
             className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl"
           >
-            Iconic Investors provides financial planners with the licence, compliance framework and strategic support to build thriving, independent advisory practices — backed by 30 years of industry experience.
+            Iconic Partners (AFSL 450822) provides experienced financial advisers with the licence, compliance framework and strategic support to build thriving, specialist advisory practices — backed by 30 years of industry experience.
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3} className="flex flex-wrap gap-4 mb-10">
@@ -67,20 +68,17 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right — Stats Card */}
+        {/* Right — Why Choose Card */}
         <motion.div
           variants={fadeUp} initial="hidden" animate="visible" custom={2}
           className="bg-primary text-primary-foreground rounded-2xl p-8 shadow-2xl shadow-primary/30"
         >
-          <h3 className="text-xl font-serif mb-6 opacity-90">Why Planners Choose Iconic</h3>
-          <div className="space-y-5">
-            {stats.map((s) => (
-              <div key={s.value} className="flex items-center gap-4">
-                <div className={`w-1.5 h-12 rounded-full ${s.gold ? "bg-accent" : "bg-primary-foreground/30"}`} />
-                <div>
-                  <div className="text-2xl font-extrabold">{s.value}</div>
-                  <div className="text-sm opacity-60">{s.label}</div>
-                </div>
+          <h3 className="text-xl font-serif mb-6 opacity-90">Why Advisers Choose Iconic Partners</h3>
+          <div className="space-y-4">
+            {reasons.map((r) => (
+              <div key={r.label} className="flex items-start gap-4">
+                <div className={`mt-1.5 w-1.5 h-5 rounded-full flex-shrink-0 ${r.gold ? "bg-accent" : "bg-primary-foreground/30"}`} />
+                <p className="text-base leading-snug opacity-90">{r.label}</p>
               </div>
             ))}
           </div>

@@ -49,8 +49,8 @@ export default function SpecialistSection() {
       <div className="py-20 md:py-28 pb-0">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-3">Specialist Services</p>
-          <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Advanced Services for Complex Client Needs</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-16">Beyond our core licensee services offering, Iconic Investors provides access to specialist services through our strategic business partners — giving your clients access to world-class expertise.</p>
+          <h2 className="text-3xl sm:text-4xl font-serif text-foreground mb-4">Specialist Services Offered</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mb-16">Beyond our core Licensee Services offering, the Iconic Investors group provides access to specialist services through our joint venture and strategic partners — adding further value to your practice and meeting the needs of your clients.</p>
         </div>
       </div>
 
