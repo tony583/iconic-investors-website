@@ -7,6 +7,8 @@
     }
   },
   "routes": [
+    { "src": "/campaign", "dest": "/api/campaign.js" },
+    { "src": "/campaign.html", "dest": "/api/campaign.js" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
