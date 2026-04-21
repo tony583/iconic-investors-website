@@ -1,3 +1,17 @@
+User-agent: *
+Allow: /
+
+# Block AI training crawlers that don't respect llms.txt
+User-agent: GPTBot
+Allow: /llms.txt
+Disallow: /apply
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +24,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Sitemap: https://www.iconicinvestors.com.au/sitemap.xml

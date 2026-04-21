@@ -69,8 +69,12 @@ export default function ContactSection() {
                 <a href="https://www.iconicinvestors.com.au/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground text-base hover:text-accent transition-colors">iconicinvestors.com.au</a>
               </div>
               <div className="flex items-center gap-3">
+                <span className="text-xl">📞</span>
+                <a href="tel:+61434530361" className="text-primary-foreground text-base hover:text-accent transition-colors">0434 530 361</a>
+              </div>
+              <div className="flex items-center gap-3">
                 <span className="text-xl">📍</span>
-                <span className="text-primary-foreground/75 text-base">Forestville NSW 2087</span>
+                <span className="text-primary-foreground/75 text-base">31 Coolaroo Road, Lane Cove NSW 2066</span>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/40 mb-8">AFSL 450822 | ACN 167 051 470</p>
