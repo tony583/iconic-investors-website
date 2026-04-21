@@ -6,8 +6,8 @@
       "maxDuration": 10
     }
   },
-  "rewrites": [
-    { "source": "/campaign.html", "destination": "/campaign.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
