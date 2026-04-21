@@ -64,9 +64,11 @@ Tag is installed in `index.html`. To update, search for `G-JPLEN1G53P`.
 
 | Field | Value |
 |---|---|
-| Pixel ID | XXXXXXXXXXXXXXXX (update when available) |
+| Dataset Name | Iconic Website |
+| Pixel ID | 1146488444033880 |
+| Business ID | 2157020331473470 |
 
-Placeholder is in `index.html`. Replace `XXXXXXXXXXXXXXXX` with actual Pixel ID.
+Installed in `index.html`. Tracks PageView on all pages.
 
 ---
 
