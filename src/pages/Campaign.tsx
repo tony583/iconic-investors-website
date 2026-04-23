@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const campaignHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -1927,14 +1927,34 @@ const campaignHTML = `<!DOCTYPE html>
 `;
 
 const Campaign = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
   useEffect(() => {
-    // Replace entire document with campaign HTML
-    document.open();
-    document.write(campaignHTML);
-    document.close();
+    const blob = new Blob([campaignHTML], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    if (iframeRef.current) {
+      iframeRef.current.src = url;
+    }
+    return () => {
+      URL.revokeObjectURL(url);
+    };
   }, []);
 
-  return null;
+  return (
+    <iframe
+      ref={iframeRef}
+      title="Campaign"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        border: "none",
+        zIndex: 9999,
+      }}
+    />
+  );
 };
 
 export default Campaign;
