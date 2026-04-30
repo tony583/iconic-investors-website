@@ -399,7 +399,7 @@ export default function ApplicationForm() {
     setSubmitting(true);
     setServerError("");
     try {
-      const res = await fetch("/api/submit-form", {
+      const res = await fetch("https://app.bloomwealth.com.au/ar-submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
