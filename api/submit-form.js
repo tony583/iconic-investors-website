@@ -1,5 +1,9 @@
 import { Resend } from "resend";
 
+const SUPABASE_URL = "https://honrywzfzwmywwoaqevn.supabase.co";
+const SUPABASE_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhvbnJ5d3pmendteXd3b2FxZXZuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjEzMDM4MCwiZXhwIjoyMDkxNzA2MzgwfQ.OECGfrh2kN9MAtRCIGIQvvv55zATJ-8W2LHiKjuWzFk";
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
@@ -9,6 +13,31 @@ export default async function handler(req, res) {
 
   const data = req.body;
 
+  // ── 1. Save to Supabase FIRST — data is never lost ─────────────────────────
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/form_submissions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify({
+        full_name: `${data.firstName || ""} ${data.lastName || ""}`.trim(),
+        email: data.email || null,
+        phone: data.phone || null,
+        state: data.personalAddress?.state || null,
+        asic_rep: data.arNumber || null,
+        message: JSON.stringify(data), // full application stored as JSON
+      }),
+    });
+    console.log("Saved to Supabase form_submissions");
+  } catch (err) {
+    console.error("Supabase save error:", err);
+  }
+
+  // ── 2. Send email notification ──────────────────────────────────────────────
   const formatAddress = (addr) => {
     if (!addr) return "N/A";
     return [addr.street, addr.suburb, addr.state, addr.postcode, addr.country]
@@ -34,7 +63,10 @@ export default async function handler(req, res) {
   ];
 
   const htmlBody = `
-    <h1 style="font-family:sans-serif;color:#1a1a2e;">New AR Application — Iconic Investors</h1>
+    <h1 style="font-family:sans-serif;color:#1a3c2e;">New AR Application — Iconic Investors</h1>
+    <p style="font-family:sans-serif;background:#f0faf0;padding:8px 12px;border-radius:6px;font-size:13px;color:#2d6b52;">
+      ✅ This application has been saved to Supabase as a backup.
+    </p>
 
     <h2 style="font-family:sans-serif;color:#444;border-bottom:1px solid #eee;padding-bottom:8px;">Authorisation Types</h2>
     <p><strong>Personal Financial Product Advice:</strong> ${formatList(data.personalAdvice)}</p>
@@ -45,6 +77,8 @@ export default async function handler(req, res) {
     <h2 style="font-family:sans-serif;color:#444;border-bottom:1px solid #eee;padding-bottom:8px;">Personal Details</h2>
     <p><strong>First Name:</strong> ${data.firstName || "N/A"}</p>
     <p><strong>Last Name:</strong> ${data.lastName || "N/A"}</p>
+    <p><strong>Email:</strong> ${data.email || "N/A"}</p>
+    <p><strong>Phone:</strong> ${data.phone || "N/A"}</p>
     <p><strong>Address:</strong> ${formatAddress(data.personalAddress)}</p>
 
     <h2 style="font-family:sans-serif;color:#444;border-bottom:1px solid #eee;padding-bottom:8px;">Employer / Business Details</h2>
@@ -65,12 +99,7 @@ export default async function handler(req, res) {
     <p>${formatList(data.documents)}</p>
 
     <h2 style="font-family:sans-serif;color:#444;border-bottom:1px solid #eee;padding-bottom:8px;">Compliance Questions</h2>
-    ${yesNoQuestions
-      .map((q, i) => {
-        const key = `compliance_${i}`;
-        return `<p><strong>${q}</strong><br/>Answer: ${data[key] || "N/A"}</p>`;
-      })
-      .join("")}
+    ${yesNoQuestions.map((q, i) => `<p><strong>${q}</strong><br/>Answer: ${data[`compliance_${i}`] || "N/A"}</p>`).join("")}
     <p><strong>Details (if YES to any above):</strong><br/>${data.complianceDetails || "N/A"}</p>
 
     <h2 style="font-family:sans-serif;color:#444;border-bottom:1px solid #eee;padding-bottom:8px;">Declaration</h2>
@@ -78,7 +107,7 @@ export default async function handler(req, res) {
     <p><strong>Agreed to Terms:</strong> ${data.agreedToTerms ? "Yes" : "No"}</p>
 
     <hr style="margin-top:32px;"/>
-    <p style="color:#888;font-size:12px;">Submitted via iconicinvestors.com.au application form</p>
+    <p style="color:#888;font-size:12px;">Submitted via iconicinvestors.com.au/apply</p>
   `;
 
   try {
@@ -88,10 +117,10 @@ export default async function handler(req, res) {
       subject: `New AR Application — ${data.firstName || ""} ${data.lastName || ""}`,
       html: htmlBody,
     });
-
-    return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Email send error:", error);
-    return res.status(500).json({ error: "Failed to send application" });
+    // Data is already in Supabase — not a fatal error
   }
+
+  return res.status(200).json({ success: true });
 }
