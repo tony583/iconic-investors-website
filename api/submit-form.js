@@ -1,10 +1,18 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 const SUPABASE_URL = "https://honrywzfzwmywwoaqevn.supabase.co";
 const SUPABASE_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhvbnJ5d3pmendteXd3b2FxZXZuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjEzMDM4MCwiZXhwIjoyMDkxNzA2MzgwfQ.OECGfrh2kN9MAtRCIGIQvvv55zATJ-8W2LHiKjuWzFk";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "connect@iconicinvestors.com.au",
+    pass: "ftqo xjao yqsj tygj",
+  },
+});
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -29,15 +37,15 @@ export default async function handler(req, res) {
         phone: data.phone || null,
         state: data.personalAddress?.state || null,
         asic_rep: data.arNumber || null,
-        message: JSON.stringify(data), // full application stored as JSON
+        message: JSON.stringify(data),
       }),
     });
-    console.log("Saved to Supabase form_submissions");
+    console.log("Saved to Supabase");
   } catch (err) {
-    console.error("Supabase save error:", err);
+    console.error("Supabase error:", err);
   }
 
-  // ── 2. Send email notification ──────────────────────────────────────────────
+  // ── 2. Send email via Gmail SMTP ───────────────────────────────────────────
   const formatAddress = (addr) => {
     if (!addr) return "N/A";
     return [addr.street, addr.suburb, addr.state, addr.postcode, addr.country]
@@ -111,15 +119,15 @@ export default async function handler(req, res) {
   `;
 
   try {
-    await resend.emails.send({
-      from: "Applications <onboarding@resend.dev>",
+    await transporter.sendMail({
+      from: '"Iconic Investors Applications" <connect@iconicinvestors.com.au>',
       to: "antonio@iconicinvestors.com.au",
       subject: `New AR Application — ${data.firstName || ""} ${data.lastName || ""}`,
       html: htmlBody,
     });
+    console.log("Email sent via Gmail");
   } catch (error) {
     console.error("Email send error:", error);
-    // Data is already in Supabase — not a fatal error
   }
 
   return res.status(200).json({ success: true });
